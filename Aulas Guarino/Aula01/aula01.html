@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <title>Validação de formulários com JS</title>
+    <script type="text/javascript">
+        function validacao() {
+            let formulario = document.forms["formcadastro"]
+            let nome = formulario.nome.value
+            let cpf = formulario.cpf.value
+            let perfil = formulario.perfil.value
+            let sexo = formulario.sexo.value
+            //alert("Você digitou este nome: "+nome)
+            console.log("você selecionou este sexo")
+            console.log(sexo)
+
+            let erro = false //não tem erro
+            if (nome.indexOf(" ") == -1){
+                alert("Preencha o nome completo")
+                erro = true //quando identificado um erro
+            }
+            if (cpf.length != 11){ //se for diferente de 11
+                alert("Preencha o CPF corretamente")
+                erro = true
+            }
+            if (perfil.length < 20){ //se for menor que 20
+                alert("Digite pelo menos 20 caracteres")
+                erro = true
+            }
+
+            if (erro) {
+                return false
+            }else{
+                return true
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <form name="formcadastro" action="exemplo.html" method="post" onsubmit="return validacao()">
+        <label>Nome</label>
+        <input type="text" name="nome" placeholder="Nome"/><br>
+        <label>CPF</label>
+        <input type="number" name="cpf" placeholder="CPF"/><br>
+        <label>Sexo</label><br>
+        <input type="radio" name="sexo" value="M" checked="checked"/> Masculino<br>
+        <input type="radio" name="sexo" value="F" checked="checked"/> Feminino<br>
+        <label>Perfil</label><br>
+        <textarea name="perfil" rows="10" cols="50"></textarea><br>
+        <input type="submit" name="enviar" value="Salvar"/>
+    </form>
+</body>
+</html>
