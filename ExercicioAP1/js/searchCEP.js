@@ -23,7 +23,7 @@ btnCEP.addEventListener('click', function () {
 
     //Transforma o JSON retornado em um objeto do JavaScript
     let address = JSON.parse(request.responseText);
-    let por = 0.0;
+    var por = 0.0;
     
     let cep = document.querySelector('#cep');
     cep.innerHTML = address.cep;
